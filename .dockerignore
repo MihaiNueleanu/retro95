@@ -1,0 +1,6 @@
+.gitignore
+Dockerfile
+.prettierrc
+node_modules
+.svelte-kit
+README.md
