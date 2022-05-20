@@ -26,4 +26,6 @@ COPY --from=builder /build/package.json .
 COPY --from=builder /build/package-lock.json .
 COPY --from=builder /build/tsconfig.json .
 
+RUN npm install --production
+
 CMD ["node", "dist"]
