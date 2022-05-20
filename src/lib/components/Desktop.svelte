@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { apps, focusedApp, openAppsStack, type AppKeys, type AppConfig } from '$lib/stores';
+	import { apps, focusedApp, openAppsStack, type AppKeys } from '$lib/stores';
 	import Icon from './Icon.svelte';
 
 	function getKey<T extends AppKeys>(key: string) {

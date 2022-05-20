@@ -120,10 +120,9 @@
 
 	.app {
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		user-select: none;
-
+		width: 150px;
 		border-color: rgb(237, 237, 237);
 		border-width: 2px;
 		border-style: outset;
