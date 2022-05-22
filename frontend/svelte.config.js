@@ -1,5 +1,8 @@
+// @ts-check
+
 import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
+import { Server } from 'socket.io';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
