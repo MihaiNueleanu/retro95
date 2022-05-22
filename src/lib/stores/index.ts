@@ -4,6 +4,7 @@ import AudioPlayer from '$lib/components/apps/AudioPlayer/AudioPlayer.svelte';
 import Literal from '$lib/components/apps/Literal.svelte';
 import Rain from '$lib/components/apps/Rain.svelte';
 import NotePad from '$lib/components/apps/Notepad.svelte';
+import Chat from '$lib/components/apps/Chat.svelte';
 
 export const isMediaPlayerOpen = writable(true);
 export const isAboutOpen = writable(false);
@@ -46,6 +47,14 @@ const appsConfig = {
 		open: false,
 		component: Literal,
 		hidden: true
+	},
+	chat: {
+		title: 'Chat',
+		icon: '/icons/envelope_closed-0.png',
+		position: { x: 10, y: 410 },
+		open: true,
+		component: Chat,
+		hidden: false
 	}
 };
 
