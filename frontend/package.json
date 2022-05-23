@@ -34,6 +34,7 @@
 		"mongodb": "^4.6.0",
 		"socket.io": "^4.5.1",
 		"socket.io-client": "^4.5.1",
-		"svelte-local-storage-store": "^0.2.6"
+		"svelte-local-storage-store": "^0.2.6",
+		"unique-names-generator": "^4.7.1"
 	}
 }

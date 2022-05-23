@@ -1,12 +1,11 @@
-import express from "express";
+import * as express from "express";
+import { createServer } from "http";
 import { Server } from "socket.io";
-import * as http from "http";
 
-const port = process.env.PORT || 4111;
-const app = express();
-const server = http.createServer(app);
+const app = express.default();
+const httpServer = createServer(app);
 
-const io = new Server(server);
+const io = new Server(httpServer, { transports: ["websocket"] });
 
 io.on("connection", (socket) => {
   let username = `User ${Math.round(Math.random() * 999999)}`;
@@ -14,17 +13,19 @@ io.on("connection", (socket) => {
   socket.on("name", (message) => {
     username = message;
     socket.emit("name", username);
+    console.log("username", username);
   });
 
-  socket.on("message", (message) => {
+  socket.on("message", (text) => {
+    console.log("text", text);
     io.emit("message", {
       from: username,
-      message: message,
+      text,
       time: new Date().toLocaleString(),
     });
   });
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
+httpServer.listen(4111, () => {
+  console.log(`Server running at http://localhost:${4111}/`);
 });
