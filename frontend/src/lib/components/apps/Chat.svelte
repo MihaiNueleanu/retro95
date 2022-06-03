@@ -18,6 +18,7 @@
 		if (!browser) return;
 
 		const url = import.meta.env.VITE_SOCKET_URL;
+		console.log({ url });
 		socket = io(url, { transports: ['websocket'] });
 
 		socket.on('connect', () => {
