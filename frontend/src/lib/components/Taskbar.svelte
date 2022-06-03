@@ -29,6 +29,7 @@
 			{#each $openApps as appKey}
 				<div
 					class="app"
+					class:focused={appKey === $focusedApp}
 					on:click={() => {
 						focusedApp.set(appKey);
 						openAppsStack.set([...$openAppsStack.filter((x) => x !== appKey), appKey]);
@@ -140,5 +141,9 @@
 		height: 20px;
 		width: 20px;
 		margin-right: 5px;
+	}
+
+	.focused {
+		border-style: inset;
 	}
 </style>

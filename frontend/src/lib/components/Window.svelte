@@ -75,7 +75,8 @@
 	}
 
 	.container.focused .topbar {
-		background-color: rgb(3, 0, 128);
+		/* background-color: rgb(3, 0, 128); */
+		background: linear-gradient(to right, rgba(3, 0, 128, 1) 0%, rgb(20, 18, 133) 100%);
 	}
 
 	.controls {

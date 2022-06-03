@@ -1,10 +1,10 @@
-import { writable } from 'svelte/store';
 import About from '$lib/components/apps/About.svelte';
 import AudioPlayer from '$lib/components/apps/AudioPlayer/AudioPlayer.svelte';
-import Literal from '$lib/components/apps/Literal.svelte';
-import Rain from '$lib/components/apps/Rain.svelte';
-import NotePad from '$lib/components/apps/Notepad.svelte';
 import Chat from '$lib/components/apps/Chat.svelte';
+import NotePad from '$lib/components/apps/Notepad.svelte';
+import Rain from '$lib/components/apps/Rain.svelte';
+import Snake from '$lib/components/apps/Snake.svelte';
+import { writable } from 'svelte/store';
 
 export const isMediaPlayerOpen = writable(true);
 export const isAboutOpen = writable(false);
@@ -26,13 +26,6 @@ const appsConfig = {
 		open: false,
 		component: About
 	},
-	notepad: {
-		title: 'Notepad',
-		icon: '/icons/template_empty-2.png',
-		position: { x: 10, y: 310 },
-		open: false,
-		component: NotePad
-	},
 	rain: {
 		title: 'Rain',
 		icon: '/icons/paint_file-5.png',
@@ -40,20 +33,35 @@ const appsConfig = {
 		open: false,
 		component: Rain
 	},
-	literal: {
-		title: 'Literal',
-		icon: '/icons/paint_file-5.png',
-		position: { x: 10, y: 210 },
+	// literal: {
+	// 	title: 'Literal',
+	// 	icon: '/icons/paint_file-5.png',
+	// 	position: { x: 100, y: 210 },
+	// 	open: false,
+	// 	component: Literal,
+	// 	hidden: true
+	// },
+	notepad: {
+		title: 'Notepad',
+		icon: '/icons/template_empty-2.png',
+		position: { x: 100, y: 10 },
 		open: false,
-		component: Literal,
-		hidden: true
+		component: NotePad
 	},
 	chat: {
 		title: 'Chat',
 		icon: '/icons/envelope_closed-0.png',
-		position: { x: 10, y: 410 },
-		open: true,
+		position: { x: 100, y: 110 },
+		open: false,
 		component: Chat,
+		hidden: false
+	},
+	snake: {
+		title: 'Snake',
+		icon: '/icons/ms_dos-1.png',
+		position: { x: 100, y: 210 },
+		open: false,
+		component: Snake,
 		hidden: false
 	}
 };

@@ -25,9 +25,17 @@ export function dragElement(el: HTMLElement) {
 		pos2 = pos4 - e.clientY;
 		pos3 = e.clientX;
 		pos4 = e.clientY;
+
+		const newTop = el.offsetTop - pos2;
+		const newLeft = el.offsetLeft - pos1;
+
+		// do not drag the element if the cursor is outside the window
+		if (newTop < 0 || newTop + el.offsetHeight > window.innerHeight) return;
+		if (newLeft < 0 || newLeft + el.offsetWidth > window.innerWidth) return;
+
 		// set the element's new position:
-		el.style.top = el.offsetTop - pos2 + 'px';
-		el.style.left = el.offsetLeft - pos1 + 'px';
+		el.style.top = newTop + 'px';
+		el.style.left = newLeft + 'px';
 	}
 
 	function closeDragElement() {
