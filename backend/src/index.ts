@@ -1,6 +1,8 @@
 import * as express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import { messageService } from "./services/message/message.service";
+import { Message } from "./services/message/message.type";
 
 const app = express.default();
 const httpServer = createServer(app);
@@ -16,13 +18,19 @@ io.on("connection", (socket) => {
     console.log("username", username);
   });
 
-  socket.on("message", (text) => {
-    console.log("text", text);
-    io.emit("message", {
+  socket.on("message", async (text) => {
+    const message = await messageService.create({
       from: username,
       text,
-      time: new Date().toLocaleString(),
+      time: new Date(),
     });
+
+    io.emit("message", message);
+  });
+
+  socket.on("getMessagesRequest", async () => {
+    const messages = await messageService.getAll();
+    socket.emit("getMessagesResponse", messages);
   });
 });
 

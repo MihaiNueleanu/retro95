@@ -90,6 +90,7 @@
 		display: flex;
 		flex-direction: column;
 		z-index: 2;
+		height: 100%;
 	}
 	.topbar {
 		display: flex;
