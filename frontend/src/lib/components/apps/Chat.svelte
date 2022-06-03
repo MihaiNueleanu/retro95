@@ -7,6 +7,7 @@
 	import { chatName } from '$lib/stores/localStorage';
 	import type { ChatMessage } from '$lib/utils/chat';
 	import moment from 'moment';
+	import { appsettings } from '$lib/stores/appsettings';
 
 	let appKey: AppKeys = 'chat';
 	let socket: Socket;
@@ -17,7 +18,7 @@
 	onMount(() => {
 		if (!browser) return;
 
-		const url = import.meta.env.VITE_SOCKET_URL;
+		const url = $appsettings.SOCKET_URL;
 		console.log({ url });
 		socket = io(url, { transports: ['websocket'] });
 
